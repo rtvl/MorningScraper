@@ -76,7 +76,7 @@ def search(ref, verbose=False):
     if verbose:
         print('Search for: %s' % ref)
     data = urlopen(SEARCH_BASE % quote(ref)).read()
-    parsed_html = BeautifulSoup(data)
+    parsed_html = BeautifulSoup(data,features="lxml)
     results = []
     stocks = parsed_html.find_all(
         'table', id='ctl00_MainContent_stockTable'
